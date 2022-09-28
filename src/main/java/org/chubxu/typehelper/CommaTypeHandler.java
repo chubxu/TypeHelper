@@ -19,13 +19,13 @@ public class CommaTypeHandler extends TypedHandlerDelegate {
     @Override
     public @NotNull Result charTyped(char c, @NotNull Project project, @NotNull Editor editor, @NotNull PsiFile file) {
         String commaChinese = String.valueOf(c);
-        if (",".equals(commaChinese)) {
+        if ("，".equals(commaChinese)) {
             Document document = editor.getDocument();
             CaretModel caretModel = editor.getCaretModel();
             Caret primaryCaret = caretModel.getPrimaryCaret();
             int caretOffset = primaryCaret.getOffset();
             document.deleteString(caretOffset-1, caretOffset);
-            document.insertString(caretOffset-1, "a");
+            document.insertString(caretOffset-1, ",");
             primaryCaret.moveToOffset(caretOffset);
         }
         return Result.CONTINUE;
