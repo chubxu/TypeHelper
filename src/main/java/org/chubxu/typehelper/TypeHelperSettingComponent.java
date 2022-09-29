@@ -9,6 +9,11 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import java.awt.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.Objects;
 
 public class TypeHelperSettingComponent implements SearchableConfigurable {
@@ -16,6 +21,9 @@ public class TypeHelperSettingComponent implements SearchableConfigurable {
     private JPanel typeHelperPanel;
 
     private JTextArea jTextArea;
+
+    private JCheckBox jCheckBox;
+    private JSeparator jSeparator;
 
     @Override
     public @NotNull @NonNls String getId() {
@@ -33,9 +41,19 @@ public class TypeHelperSettingComponent implements SearchableConfigurable {
             typeHelperPanel.repaint();
             return typeHelperPanel;
         }
-        typeHelperPanel = new JPanel();
-        jTextArea = new JTextArea(10, 10);
-        typeHelperPanel.add(jTextArea);
+        typeHelperPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+
+        jCheckBox = new JCheckBox("type helper check box");
+        jSeparator = new JSeparator(SwingConstants.HORIZONTAL);
+        jCheckBox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                System.out.println(e.getStateChange());
+            }
+        });
+        typeHelperPanel.add(jCheckBox);
+        typeHelperPanel.add(jSeparator);
+        typeHelperPanel.add(jCheckBox);
         return typeHelperPanel;
     }
 
