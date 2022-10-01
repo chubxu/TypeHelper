@@ -1,4 +1,4 @@
-package org.chubxu.typehelper.ui;
+package org.chubxu.typehelper.extension;
 
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.options.SearchableConfigurable;
@@ -8,18 +8,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.util.Objects;
 
-public class TypeHelperConfigurableUI implements SearchableConfigurable {
-
-    private JPanel typeHelperPanel;
-
-    private JTextArea jTextArea;
-
-    private JCheckBox jCheckBox;
-    private JSeparator jSeparator;
+public class TypeHelperConfigurable implements SearchableConfigurable {
 
     @Override
     public @NotNull @NonNls String getId() {
@@ -33,24 +23,7 @@ public class TypeHelperConfigurableUI implements SearchableConfigurable {
 
     @Override
     public @Nullable JComponent createComponent() {
-        if (Objects.nonNull(typeHelperPanel)) {
-            typeHelperPanel.repaint();
-            return typeHelperPanel;
-        }
-        typeHelperPanel = new JPanel();
-
-        jCheckBox = new JCheckBox("type helper check box");
-        jSeparator = new JSeparator(SwingConstants.VERTICAL);
-        jCheckBox.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                System.out.println(e.getStateChange());
-            }
-        });
-        typeHelperPanel.add(jCheckBox);
-        typeHelperPanel.add(new JLabel("enable"));
-        typeHelperPanel.add(jSeparator);
-        return typeHelperPanel;
+        return null;
     }
 
     // Setting中的"Apply" button是否生效是由该方法进行判断。

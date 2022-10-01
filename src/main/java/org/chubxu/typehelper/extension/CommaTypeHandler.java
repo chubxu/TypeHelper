@@ -1,4 +1,4 @@
-package org.chubxu.typehelper;
+package org.chubxu.typehelper.extension;
 
 import com.intellij.codeInsight.editorActions.TypedHandlerDelegate;
 import com.intellij.openapi.editor.Caret;

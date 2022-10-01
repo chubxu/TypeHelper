@@ -25,10 +25,10 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-        <typedHandler id="org.chubxu.typehelper.CommaTypeHandler"
-                      implementation="org.chubxu.typehelper.CommaTypeHandler"/>
-        <applicationConfigurable id="org.chubxu.typehelper.ui.TypeHelperConfigurableUI"
-                                 instance="org.chubxu.typehelper.ui.TypeHelperConfigurableUI"/>
+        <typedHandler id="org.chubxu.typehelper.extension.CommaTypeHandler"
+                      implementation="org.chubxu.typehelper.extension.CommaTypeHandler"/>
+        <applicationConfigurable id="org.chubxu.typehelper.extension.TypeHelperConfigurable"
+                                 instance="org.chubxu.typehelper.extension.TypeHelperConfigurable"/>
     </extensions>
     <actions>
     </actions>
