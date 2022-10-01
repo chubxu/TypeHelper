@@ -13,7 +13,7 @@ public class TypeHelperConfigurable implements SearchableConfigurable {
 
     @Override
     public @NotNull @NonNls String getId() {
-        return "org.chubxu.typehelper.TypeHelperSettingComponent";
+        return "org.chubxu.typehelper.extension.TypeHelperConfigurable";
     }
 
     @Override
