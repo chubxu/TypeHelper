@@ -1,6 +1,5 @@
-package org.chubxu.typehelper;
+package org.chubxu.typehelper.ui;
 
-import com.intellij.openapi.options.Configurable;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.options.SearchableConfigurable;
 import com.intellij.openapi.util.NlsContexts;
@@ -9,14 +8,11 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.Objects;
 
-public class TypeHelperSettingComponent implements SearchableConfigurable {
+public class TypeHelperConfigurableUI implements SearchableConfigurable {
 
     private JPanel typeHelperPanel;
 
@@ -41,10 +37,10 @@ public class TypeHelperSettingComponent implements SearchableConfigurable {
             typeHelperPanel.repaint();
             return typeHelperPanel;
         }
-        typeHelperPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        typeHelperPanel = new JPanel();
 
         jCheckBox = new JCheckBox("type helper check box");
-        jSeparator = new JSeparator(SwingConstants.HORIZONTAL);
+        jSeparator = new JSeparator(SwingConstants.VERTICAL);
         jCheckBox.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
@@ -52,8 +48,8 @@ public class TypeHelperSettingComponent implements SearchableConfigurable {
             }
         });
         typeHelperPanel.add(jCheckBox);
+        typeHelperPanel.add(new JLabel("enable"));
         typeHelperPanel.add(jSeparator);
-        typeHelperPanel.add(jCheckBox);
         return typeHelperPanel;
     }
 

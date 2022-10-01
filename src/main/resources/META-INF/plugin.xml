@@ -27,8 +27,8 @@
     <extensions defaultExtensionNs="com.intellij">
         <typedHandler id="org.chubxu.typehelper.CommaTypeHandler"
                       implementation="org.chubxu.typehelper.CommaTypeHandler"/>
-        <applicationConfigurable id="org.chubxu.typehelper.TypeHelperSettingComponent"
-                                 instance="org.chubxu.typehelper.TypeHelperSettingComponent"/>
+        <applicationConfigurable id="org.chubxu.typehelper.ui.TypeHelperConfigurableUI"
+                                 instance="org.chubxu.typehelper.ui.TypeHelperConfigurableUI"/>
     </extensions>
     <actions>
     </actions>
