@@ -3,13 +3,17 @@ package org.chubxu.typehelper.extension;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.options.SearchableConfigurable;
 import com.intellij.openapi.util.NlsContexts;
+import org.chubxu.typehelper.ui.TypeHelperConfigurableUI;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
+import java.util.Objects;
 
 public class TypeHelperConfigurable implements SearchableConfigurable {
+
+    private TypeHelperConfigurableUI typeHelperConfigurableUI;
 
     @Override
     public @NotNull @NonNls String getId() {
@@ -23,7 +27,10 @@ public class TypeHelperConfigurable implements SearchableConfigurable {
 
     @Override
     public @Nullable JComponent createComponent() {
-        return null;
+        if (Objects.isNull(typeHelperConfigurableUI)) {
+            typeHelperConfigurableUI = new TypeHelperConfigurableUI();
+        }
+        return typeHelperConfigurableUI.mainPanel;
     }
 
     // Setting中的"Apply" button是否生效是由该方法进行判断。
