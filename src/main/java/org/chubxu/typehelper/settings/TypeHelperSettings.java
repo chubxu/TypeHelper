@@ -1,29 +1,38 @@
 package org.chubxu.typehelper.settings;
 
+import com.intellij.openapi.application.Application;
+import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.components.*;
 import com.intellij.util.xmlb.XmlSerializerUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class TypeHelperSettings{
+import java.io.Serializable;
+import java.util.Objects;
 
-    private static class TypeHelperSettingsHolder {
-        public static final TypeHelperSettings INSTANCE = new TypeHelperSettings();
-    }
-
+@State(
+        name = "TypeHelperSettings",
+        storages = @Storage("TypeHelper.xml")
+)
+public class TypeHelperSettings implements PersistentStateComponent<TypeHelperSettings>, Serializable {
 
     // 1: check; 2: uncheck
     private boolean enableTypeHelper;
 
     public static TypeHelperSettings getInstance() {
-        return TypeHelperSettingsHolder.INSTANCE;
+        TypeHelperSettings typeHelperSettings = ApplicationManager.getApplication().getService(TypeHelperSettings.class);
+        if (Objects.isNull(typeHelperSettings)) {
+            typeHelperSettings = new TypeHelperSettings();
+        }
+        return typeHelperSettings;
     }
 
-//    @Override
+    @Override
     public @Nullable TypeHelperSettings getState() {
-        return null;
+        return this;
     }
 
-//    @Override
+    @Override
     public void loadState(@NotNull TypeHelperSettings state) {
         XmlSerializerUtil.copyBean(state, this);
     }
@@ -38,5 +47,12 @@ public class TypeHelperSettings{
 
     public void setEnableTypeHelper(boolean enableTypeHelper) {
         this.enableTypeHelper = enableTypeHelper;
+    }
+
+    @Override
+    public String toString() {
+        return "TypeHelperSettings{" +
+                "enableTypeHelper=" + enableTypeHelper +
+                '}';
     }
 }

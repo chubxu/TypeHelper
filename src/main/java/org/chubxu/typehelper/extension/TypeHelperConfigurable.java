@@ -55,7 +55,7 @@ public class TypeHelperConfigurable implements SearchableConfigurable {
         typeHelperSettings.setEnableTypeHelper(typeHelperConfigurableUI.enableTypeHelperCheckBox.isSelected());
     }
 
-    // 点击reset按钮和重新打开配置页面时调用
+    // 点击reset按钮和打开配置页面时调用
     @Override
     public void reset() {
         typeHelperConfigurableUI.enableTypeHelperCheckBox.setSelected(typeHelperSettings.getEnableTypeHelper());
