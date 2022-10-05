@@ -32,5 +32,8 @@
                                  instance="org.chubxu.typehelper.extension.TypeHelperConfigurable"/>
     </extensions>
     <actions>
+        <action id="org.chubxu.typehelper.action.TestAction" class="org.chubxu.typehelper.action.TestAction">
+            <keyboard-shortcut first-keystroke="ctrl QUOTE" keymap="$default"/>
+        </action>
     </actions>
 </idea-plugin>
